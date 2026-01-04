@@ -1,1 +1,6 @@
-{"rewrites":[{"source":"/(.*)","destination":"/index.html"}]}
+{
+    "framework": "hugo",
+    "buildCommand": "hugo --gc --minify",
+    "outputDirectory": "public",
+    "ignoreCommand": "git log -1 --pretty=%B | grep -q 'skip ci'"
+}
