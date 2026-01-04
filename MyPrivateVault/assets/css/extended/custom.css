@@ -1,0 +1,380 @@
+/* Global Layout Improvements */
+:root {
+    --accent: #8e354a; /* Cinnabar Red (朱砂红) for a classic Chinese feel */
+    --accent-hover: #5e212e;
+    --border-color: #d1d5db;
+}
+
+body {
+    background-color: #f3f4f6; /* Light gray base */
+    /* Complex Chinese Lattice Pattern (Seigaiha / Waves overlap) */
+    background-image: 
+        linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)),
+        url("data:image/svg+xml,%3Csvg width='100' height='20' viewBox='0 0 100 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M21.184 20c.357-.13.72-.264 1.088-.402l1.768-.661C33.64 15.347 39.647 14 50 14c10.271 0 15.362 1.222 24.629 4.928.955.374 1.949.747 2.996 1.08l1.19.29.993-1.812-.993-1.812c-.955-.374-1.949-.747-2.996-1.08C66.362 11.222 61.271 10 51 10c-10.353 0-16.36 1.347-25.96 4.937l-1.768.661c-.368.138-.731.272-1.088.402l-.612-1.637c.357-.13.72-.264 1.088-.402l1.768-.661C33.64 7.347 39.647 6 50 6c10.271 0 15.362 1.222 24.629 4.928.955.374 1.949.747 2.996 1.08l1.19.29.993-1.812-.993-1.812c-.955-.374-1.949-.747-2.996-1.08C66.362 3.222 61.271 2 51 2c-10.353 0-16.36 1.347-25.96 4.937l-1.768.661c-.368.138-.731.272-1.088.402l-.612-1.637c.357-.13.72-.264 1.088-.402l1.768-.661C33.64-.653 39.647-2 50-2c10.271 0 15.362 1.222 24.629 4.928.955.374 1.949.747 2.996 1.08l1.19.29L80 6.096l1.185-1.786c.955-.374 1.949-.747 2.996-1.08C93.362-.482 98.453-1.704 108.724-1.704c10.353 0 16.36 1.347 25.96 4.937l1.768.661c.368.138.731.272 1.088.402l.612 1.637c-.357.13-.72.264-1.088.402l-1.768.661C126.36 10.653 120.353 12 110 12c-10.271 0-15.362-1.222-24.629-4.928-.955-.374-1.949-.747-2.996-1.08L81.185 5.702 80 7.514l-1.185-1.786c-.955.374-1.949.747-2.996 1.08C68.638 10.518 63.547 11.74 53.276 11.74c-10.353 0-16.36-1.347-25.96-4.937l-1.768-.661c-.368-.138-.731-.272-1.088-.402l-.612-1.637c.357.13.72.264 1.088.402l1.768.661C33.64 18.653 39.647 20 50 20c10.271 0 15.362-1.222 24.629-4.928.955-.374 1.949-.747 2.996-1.08l1.19-.29.993 1.812-.993 1.812c-.955.374-1.949.747-2.996 1.08C66.362 22.778 61.271 24 51 24c-10.353 0-16.36-1.347-25.96-4.937l-1.768-.661c-.368-.138-.731-.272-1.088-.402l-.612-1.637z' fill='%239CA3AF' fill-opacity='0.15' fill-rule='evenodd'/%3E%3C/svg%3E");
+    min-height: 100vh;
+    font-family: "KaiTi", "STKaiti", "Baskerville", "Georgia", "serif";
+}
+
+body.dark {
+    background-color: #1a1a1a;
+    background-image: 
+        linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+        url("data:image/svg+xml,%3Csvg width='100' height='20' viewBox='0 0 100 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M21.184 20c.357-.13.72-.264 1.088-.402l1.768-.661C33.64 15.347 39.647 14 50 14c10.271 0 15.362 1.222 24.629 4.928.955.374 1.949.747 2.996 1.08l1.19.29.993-1.812-.993-1.812c-.955-.374-1.949-.747-2.996-1.08C66.362 11.222 61.271 10 51 10c-10.353 0-16.36 1.347-25.96 4.937l-1.768.661c-.368.138-.731.272-1.088.402l-.612-1.637c.357-.13.72-.264 1.088-.402l1.768-.661C33.64 7.347 39.647 6 50 6c10.271 0 15.362 1.222 24.629 4.928.955.374 1.949.747 2.996 1.08l1.19.29.993-1.812-.993-1.812c-.955-.374-1.949-.747-2.996-1.08C66.362 3.222 61.271 2 51 2c-10.353 0-16.36 1.347-25.96 4.937l-1.768.661c-.368.138-.731.272-1.088.402l-.612-1.637c.357-.13.72-.264 1.088-.402l1.768-.661C33.64-.653 39.647-2 50-2c10.271 0 15.362 1.222 24.629 4.928.955.374 1.949.747 2.996 1.08l1.19.29L80 6.096l1.185-1.786c.955-.374 1.949-.747 2.996-1.08C93.362-.482 98.453-1.704 108.724-1.704c10.353 0 16.36 1.347 25.96 4.937l1.768.661c.368.138.731.272 1.088.402l.612 1.637c-.357.13-.72.264-1.088.402l-1.768.661C126.36 10.653 120.353 12 110 12c-10.271 0-15.362-1.222-24.629-4.928-.955-.374-1.949-.747-2.996-1.08L81.185 5.702 80 7.514l-1.185-1.786c-.955.374-1.949.747-2.996 1.08C68.638 10.518 63.547 11.74 53.276 11.74c-10.353 0-16.36-1.347-25.96-4.937l-1.768-.661c-.368-.138-.731-.272-1.088-.402l-.612-1.637c.357.13.72.264 1.088.402l1.768.661C33.64 18.653 39.647 20 50 20c10.271 0 15.362-1.222 24.629-4.928.955-.374 1.949-.747 2.996-1.08l1.19-.29.993 1.812-.993 1.812c-.955.374-1.949.747-2.996 1.08C66.362 22.778 61.271 24 51 24c-10.353 0-16.36-1.347-25.96-4.937l-1.768-.661c-.368-.138-.731-.272-1.088-.402l-.612-1.637z' fill='%23ffffff' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+    --accent: #b85b6b;
+}
+
+body.dark {
+    background-color: #1a1a1a; /* Ink Black */
+    background-image: radial-gradient(#2d2d2d 1px, transparent 1px);
+    --accent: #b85b6b; /* Muted Red */
+}
+
+/* Profile Mode Enhancements */
+.profile {
+    margin-top: 60px;
+}
+
+.profile .profile_inner h1 {
+    font-size: 3.8rem;
+    font-weight: normal; 
+    letter-spacing: 2px;
+    color: #333; /* Ink color */
+    background: none;
+    -webkit-text-fill-color: initial;
+    margin-bottom: 1rem;
+    font-family: "Times New Roman", Times, serif; /* User requested font */
+}
+
+body.dark .profile .profile_inner h1 {
+    color: #e0e0e0;
+}
+
+/* Quote Styling */
+.profile .profile_inner p {
+    color: #475569;
+    font-family: "KaiTi", "STKaiti", "Georgia", serif; /* Serif for the quote */
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-top: 15px;
+    letter-spacing: 2px;
+    border-top: 1px solid rgba(0,0,0,0.1);
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    display: inline-block;
+    padding: 10px 40px;
+}
+
+body.dark .profile .profile_inner p {
+    color: #cbd5e1;
+    border-color: rgba(255,255,255,0.1);
+}
+
+/* Image Styling - Hero Banner */
+.profile-hero {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto 30px auto;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px -10px rgba(0,0,0,0.2);
+    border: 4px solid #fff;
+    background: #fff;
+}
+
+.profile-hero img {
+    width: 100%;
+    height: auto;
+    display: block;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    /* Optional: Slight sepia filter for antique look */
+    filter: sepia(0.2) contrast(0.9);
+    transition: transform 10s ease-in-out;
+}
+
+.profile-hero:hover img {
+    transform: scale(1.05);
+}
+
+body.dark .profile-hero {
+    border-color: #2d2d2d;
+    box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);
+}
+
+/* Buttons */
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2x2 Grid */
+    gap: 15px;
+    max-width: 500px;
+    margin: 30px auto;
+}
+
+.button .button-inner {
+    display: block;
+    background: white;
+    color: #475569;
+    padding: 15px 10px;
+    border-radius: 12px;
+    font-weight: 600;
+    border: 1px solid rgba(0,0,0,0.08);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    text-transform: none;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    text-align: center;
+}
+
+body.dark .button .button-inner {
+    background: #1e293b;
+    color: #cbd5e1;
+    border-color: rgba(255,255,255,0.05);
+}
+
+.button:hover .button-inner {
+    background: var(--accent);
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px -5px rgba(90, 125, 124, 0.4);
+    border-color: transparent;
+}
+
+/* Update SVG icon style in buttons */
+.button .button-inner svg {
+    margin-left: 6px;
+    transition: transform 0.3s ease;
+}
+
+.button:hover .button-inner svg {
+    transform: translateX(3px);
+}
+
+/* Calendar / Timeline Styles */
+.calendar-container {
+    max-width: 800px;
+    margin: 50px auto 20px;
+    padding: 20px;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+body.dark .calendar-container {
+    background: #1e293b;
+}
+
+.calendar-header {
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--accent);
+}
+
+.calendar-heatmap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    justify-content: center;
+}
+
+.calendar-day {
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+    background-color: #ebedf0;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.1s ease;
+}
+
+body.dark .calendar-day {
+    background-color: #334155;
+}
+
+.calendar-day:hover {
+    transform: scale(1.4);
+    z-index: 10;
+    border: 1px solid rgba(0,0,0,0.1);
+}
+
+/* Contribution Levels */
+.level-0 { background-color: #ebedf0; }
+.level-1 { background-color: #9be9a8; }
+.level-2 { background-color: #40c463; }
+.level-3 { background-color: #30a14e; }
+.level-4 { background-color: #216e39; }
+
+body.dark .level-0 { background-color: #334155; }
+body.dark .level-1 { background-color: #0e4429; }
+body.dark .level-2 { background-color: #006d32; }
+body.dark .level-3 { background-color: #26a641; }
+body.dark .level-4 { background-color: #39d353; }
+
+/* Tooltip */
+.day-tooltip {
+    position: absolute;
+    bottom: 150%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #0f172a;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s;
+    pointer-events: none;
+    z-index: 100;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.day-tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #0f172a transparent transparent transparent;
+}
+
+.calendar-day:hover .day-tooltip {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Card Improvements */
+.post-entry {
+    border-radius: 12px;
+    border: none;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(8px);
+}
+
+body.dark .post-entry {
+    background: rgba(30, 41, 59, 0.7);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+}
+
+.entry-cover img {
+    border-radius: 12px 12px 0 0;
+}
+
+.main {
+    max-width: 1200px; /* Wider container for grid */
+    padding: 20px;
+}
+
+/* Grid Layout for Post List */
+.list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+/* Card Style for Post Entry */
+.post-entry {
+    background: var(--entry);
+    border-radius: 16px;
+    padding: 0; /* Remove default padding to let image bleed */
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0 !important; /* Override default margin */
+    height: 100%;
+}
+
+body.dark .post-entry {
+    border: 1px solid rgba(255,255,255,0.1);
+    background: #1e1e1e;
+}
+
+.post-entry:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* Cover Image Styling */
+.entry-cover {
+    margin: 0;
+    width: 100%;
+    height: 200px; /* Fixed height for consistency */
+    overflow: hidden;
+}
+
+.entry-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+    border-radius: 0; /* Reset radius since container handles it */
+}
+
+.post-entry:hover .entry-cover img {
+    transform: scale(1.05);
+}
+
+/* Content within the card */
+.entry-header, .entry-content, .entry-footer {
+    padding: 0 24px;
+}
+
+.entry-header {
+    margin-top: 20px;
+}
+
+.entry-footer {
+    padding-bottom: 24px;
+    margin-top: auto; /* Push footer to bottom */
+    font-size: 13px;
+    opacity: 0.7;
+}
+
+.entry-title {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.entry-content {
+    font-size: 15px;
+    color: var(--secondary);
+    line-height: 1.6;
+    margin-bottom: 15px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Limit text lines */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Header & Menu Improvements */
+.header {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+body.dark .header {
+    background: rgba(29, 29, 29, 0.8);
+}
+
+.nav a {
+    font-weight: 600;
+}
+
+/* Pagination */
+.pagination {
+    grid-column: 1 / -1; /* Span full width */
+    margin-top: 40px;
+}

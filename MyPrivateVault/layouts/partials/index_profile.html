@@ -1,0 +1,92 @@
+<div class="profile">
+    {{- with site.Params.profileMode }}
+    <div class="profile_inner">
+        <!-- Custom Hero Image -->
+        <div class="profile-hero">
+            <img src="/images/landscape_hero.jpg" alt="Landscape">
+        </div>
+
+        <h1>{{ .title | default site.Title | markdownify }}</h1>
+        <span>{{ .subtitle | markdownify }}</span>
+        {{- partial "social_icons.html" -}}
+
+        {{- with .buttons }}
+        <div class="buttons">
+            {{- range . }}
+            <a class="button" href="{{ trim .url " " }}" rel="noopener" title="{{ .name }}">
+                <span class="button-inner">
+                    {{ .name }}
+                    {{- if (findRE "://" .url) }}&nbsp;
+                    <svg fill="none" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-width="2.5" viewBox="0 0 24 24" height="14" width="14">
+                        <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
+                        <path d="M15 3h6v6"></path>
+                        <path d="M10 14L21 3"></path>
+                    </svg>
+                    {{- end }}
+                </span>
+            </a>
+            {{- end }}
+        </div>
+        {{- end }}
+
+        <!-- Activity Calendar -->
+        {{- $posts := where site.RegularPages "Section" "in" (slice "tech" "reading" "travel" "entertainment") -}}
+        {{- $postsByDate := $posts.GroupByDate "2006-01-02" -}}
+        
+        <div class="calendar-container">
+            <div class="calendar-header">内容更新日历</div>
+            <div class="calendar-heatmap" id="contribution-calendar">
+                <!-- JavaScript will populate this -->
+            </div>
+        </div>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const calendarContainer = document.getElementById('contribution-calendar');
+                const posts = {
+                    {{- range $posts -}}
+                    "{{ .Date.Format "2006-01-02" }}": {
+                        title: "{{ .Title }}",
+                        url: "{{ .Permalink }}",
+                        count: 1
+                    },
+                    {{- end -}}
+                };
+
+                // Generate last 365 days
+                const today = new Date();
+                const oneYearAgo = new Date();
+                oneYearAgo.setDate(today.getDate() - 364);
+
+                for (let d = new Date(oneYearAgo); d <= today; d.setDate(d.getDate() + 1)) {
+                    const dateStr = d.toISOString().split('T')[0];
+                    const postData = posts[dateStr];
+                    
+                    const dayEl = document.createElement('div');
+                    dayEl.className = 'calendar-day';
+                    
+                    // Determine level
+                    let level = 0;
+                    if (postData) level = 2; // Simple level for now
+                    dayEl.classList.add('level-' + level);
+
+                    // Add tooltip
+                    const tooltip = document.createElement('div');
+                    tooltip.className = 'day-tooltip';
+                    if (postData) {
+                        tooltip.innerHTML = `<strong>${dateStr}</strong><br>${postData.title}`;
+                        dayEl.onclick = () => window.location.href = postData.url;
+                    } else {
+                        tooltip.innerText = dateStr + ": No updates";
+                    }
+                    
+                    dayEl.appendChild(tooltip);
+                    calendarContainer.appendChild(dayEl);
+                }
+            });
+        </script>
+
+    </div>
+    {{- end}}
+</div>

@@ -1,0 +1,93 @@
+baseURL = "/"
+languageCode = "zh-cn"
+title = "My Workspace"
+theme = "PaperMod"
+enableRobotsTXT = true
+enableEmoji = true
+
+[markup.goldmark.renderer]
+  unsafe = true # Allow HTML for video embedding
+
+[markup.highlight]
+  style = "dracula"
+  noClasses = false
+  lineNos = true
+  
+[services]
+  [services.googleAnalytics]
+    ID = ""
+
+[params]
+  env = "production"
+  description = "Personal Knowledge Vault"
+  author = "Me"
+  defaultTheme = "auto" # dark, light, or auto
+  ShowReadingTime = true
+  ShowShareButtons = false
+  ShowPostNavLinks = true
+  ShowBreadCrumbs = true
+  ShowCodeCopyButtons = true
+  
+  # Image Configuration
+  [params.cover]
+    hidden = false
+    hiddenInList = false
+    hiddenInSingle = false
+    responsiveImages = true
+
+  # Profile Mode (Homepage)
+  [params.profileMode]
+    enabled = true
+    title = "My Workspace"
+    subtitle = "天行健，君子以自强不息"
+    # imageUrl = "/images/profile.jpg" # Disabled single image
+    imageTitle = "Landscape"
+    imageWidth = 200
+    imageHeight = 200
+    [[params.profileMode.buttons]]
+      name = "进入技术笔记"
+      url = "tech"
+    [[params.profileMode.buttons]]
+      name = "查看读书分享"
+      url = "reading"
+    [[params.profileMode.buttons]]
+      name = "浏览旅途风景"
+      url = "travel"
+    [[params.profileMode.buttons]]
+      name = "游戏与娱乐"
+      url = "entertainment"
+
+  # Search Configuration
+  [params.fuseOpts]
+    isCaseSensitive = false
+    shouldSort = true
+    location = 0
+    distance = 1000
+    threshold = 0.4
+    minMatchCharLength = 0
+    keys = ["title", "permalink", "summary", "content"]
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"] # JSON for search
+
+[menu]
+  [[menu.main]]
+    identifier = "tech"
+    name = "技术笔记"
+    url = "/tech/"
+    weight = 10
+  [[menu.main]]
+    identifier = "reading"
+    name = "读书分享"
+    url = "/reading/"
+    weight = 20
+  [[menu.main]]
+    identifier = "travel"
+    name = "旅游徒步"
+    url = "/travel/"
+    weight = 30
+  [[menu.main]]
+    identifier = "entertainment"
+    name = "游戏视频"
+    url = "/entertainment/"
+    weight = 40
