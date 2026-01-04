@@ -1,0 +1,8 @@
+{{- define "main" }}
+{{- if (and site.Params.profileMode.enabled .IsHome) }}
+{{- partial "index_profile.html" . }}
+{{- else }}
+{{- /* Fallback to list layout if profile mode is disabled (though we want it enabled) */ -}}
+{{- partial "index_profile.html" . }}
+{{- end }}
+{{- end }}
